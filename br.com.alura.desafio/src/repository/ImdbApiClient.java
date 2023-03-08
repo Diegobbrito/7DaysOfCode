@@ -1,6 +1,8 @@
 package repository;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import dto.FullResponse;
 import dto.MoviesResponse;
 
 import java.net.URI;
@@ -14,7 +16,7 @@ public class ImdbApiClient {
     private HttpRequest request;
     private HttpResponse response;
 
-    public void sendRequest(){
+    public FullResponse getImdbTop250(){
         client = HttpClient.newHttpClient();
         try{
             request = HttpRequest.newBuilder().uri(new URI("https://imdb-api.com/en/API/Top250Movies/"))
@@ -22,11 +24,11 @@ public class ImdbApiClient {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             Gson gson = new GsonBuilder().create();
-            gson.fromJson(response, MoviesResponse.class);
+            return gson.fromJson(response.toString(), FullResponse.class);
         }catch (Exception e){
 
         }
-
+        return null;
     }
 
 }
