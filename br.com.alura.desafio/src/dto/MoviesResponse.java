@@ -9,7 +9,7 @@ package dto;
         private int year;
         private String image;
         private String crew;
-        private double imDbRating;
+        private String imDbRating;
         private int imDbRatingCount;
 
         public String getId() {
@@ -68,11 +68,11 @@ package dto;
             this.crew = crew;
         }
 
-        public double getImDbRating() {
+        public String getImDbRating() {
             return imDbRating;
         }
 
-        public void setImDbRating(double imDbRating) {
+        public void setImDbRating(String imDbRating) {
             this.imDbRating = imDbRating;
         }
 
