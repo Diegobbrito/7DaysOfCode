@@ -1,12 +1,12 @@
 package dto;
 
 
-    public class MoviesResponse{
+    public class ImdbMoviesResponse {
         private String id;
         private int rank;
         private String title;
         private String fullTitle;
-        private int year;
+        private String year;
         private String image;
         private String crew;
         private String imDbRating;
@@ -44,11 +44,11 @@ package dto;
             this.fullTitle = fullTitle;
         }
 
-        public int getYear() {
+        public String getYear() {
             return year;
         }
 
-        public void setYear(int year) {
+        public void setYear(String year) {
             this.year = year;
         }
 

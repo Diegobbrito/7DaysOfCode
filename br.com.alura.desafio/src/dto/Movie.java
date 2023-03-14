@@ -1,30 +1,34 @@
 package dto;
 
-public class Movies {
+public class Movie implements Content {
     private String titulo;
     private String url;
     private String nota;
-    private int ano;
-    public Movies(String titulo, String url, String nota, int ano) {
+    private String ano;
+    public Movie(String titulo, String url, String nota, String ano) {
         this.titulo = titulo;
         this.url = url;
         this.nota = nota;
         this.ano = ano;
     }
 
-    public String getTitulo() {
+    @Override
+    public String title() {
         return titulo;
     }
 
-    public String getUrl() {
+    @Override
+    public String urlImage() {
         return url;
     }
 
-    public String getNota() {
+    @Override
+    public String rating() {
         return nota;
     }
 
-    public int getAno() {
+    @Override
+    public String year() {
         return ano;
     }
 }

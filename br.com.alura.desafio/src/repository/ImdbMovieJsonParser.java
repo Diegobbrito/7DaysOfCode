@@ -1,25 +1,26 @@
 package repository;
 
 import com.google.gson.GsonBuilder;
-import dto.FullResponse;
-import dto.Movies;
+import dto.ImdbFullResponse;
+import dto.JsonParser;
+import dto.Movie;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ImdbMovieJsonParser {
+public class ImdbMovieJsonParser implements JsonParser {
     private String json;
 
     public ImdbMovieJsonParser(String json) {
         this.json = json;
     }
 
-    public List<Movies> parse(){
-        var response =  new GsonBuilder().create().fromJson(json, FullResponse.class);
+    public List<Movie> parse(){
+        var response =  new GsonBuilder().create().fromJson(json, ImdbFullResponse.class);
         return response.getItems()
                 .stream()
                 .map(m ->
-                        new Movies(m.getTitle(), m.getImage(), m.getImDbRating(), m.getYear()))
+                        new Movie(m.getTitle(), m.getImage(), m.getImDbRating(), m.getYear()))
                 .collect(Collectors.toList());
     }
 }

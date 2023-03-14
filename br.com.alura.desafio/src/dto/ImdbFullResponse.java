@@ -2,20 +2,20 @@ package dto;
 
 import java.util.List;
 
-public class FullResponse {
-        private List<MoviesResponse> items;
+public class ImdbFullResponse {
+        private List<ImdbMoviesResponse> items;
         private String errorMessage;
 
-    public FullResponse(List<MoviesResponse> items, String errorMessage) {
+    public ImdbFullResponse(List<ImdbMoviesResponse> items, String errorMessage) {
         this.items = items;
         this.errorMessage = errorMessage;
     }
 
-    public List<MoviesResponse> getItems() {
+    public List<ImdbMoviesResponse> getItems() {
         return items;
     }
 
-    public void setItems(List<MoviesResponse> items) {
+    public void setItems(List<ImdbMoviesResponse> items) {
         this.items = items;
     }
 
